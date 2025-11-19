@@ -1,0 +1,104 @@
+.about {
+  position: relative;
+  padding: 160px 20px;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Фон — легкий космічний градієнт */
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    circle at 40% 20%,
+    rgba(150, 130, 255, 0.18),
+    rgba(20, 18, 40, 1)
+  );
+}
+
+/* Глибоке фіолетове світіння */
+.bgGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 60% 70%,
+    rgba(200, 120, 255, 0.25),
+    transparent 70%
+  );
+  filter: blur(120px);
+  z-index: 0;
+}
+
+/* Дрібні зірочки */
+.bgStars::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url("/small-stars1.png"); /* ДАМ АЛЬТЕРНАТИВУ ЯКЩО НЕМА */
+
+  opacity: 0.6;
+}
+
+.inner {
+  position: relative;
+  z-index: 3;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  text-align: center;
+}
+
+/* Фото + glow */
+.photoWrap {
+  position: relative;
+  width: 260px;
+  margin: 0 auto;
+}
+
+.photoGlow {
+  position: absolute;
+  inset: 0;
+  filter: blur(80px);
+  background: radial-gradient(circle, rgba(165, 120, 255, 0.55), transparent);
+  z-index: -1;
+}
+
+.photo {
+  width: 260px;
+  height: 320px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid rgba(220, 200, 255, 0.3);
+  box-shadow: 0 0 32px rgba(140, 95, 255, 0.5);
+}
+
+.title {
+  font-size: 34px;
+  font-family: var(--font-title);
+  margin-bottom: 12px;
+}
+
+.desc {
+  font-size: 18px;
+  line-height: 1.65;
+  max-width: 700px;
+  margin: 0 auto 12px;
+  color: #e6e1ff;
+}
+
+@media (min-width: 900px) {
+  .inner {
+    flex-direction: row;
+    text-align: left;
+    gap: 60px;
+    align-items: center;
+  }
+  .photoWrap {
+    margin: 0;
+  }
+}
