@@ -1,66 +1,63 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import AboutBlock from "@/components/AboutBlock/AboutBlock";
+import styles from "./page.module.css";
+import Image from "next/image";
+import ServicesBlock from "@/components/ServicesBlock/ServicesBlock";
+import CTA from "@/components/CTA/CTA";
+import Footer from "@/components/Footer/Footer";
+import { useFadeIn } from "@/hooks/useFadeIn";
+
+export default function HomePage() {
+  useFadeIn();
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <main className={`${styles.container} ${styles.fadeAfterHero}`}>
+        {/* Nebula layers */}
+        <div className={styles.nebula}></div>
+        <div className={styles.nebula2}></div>
+        <div className={styles.nebulaDust}></div>
+
+        {/* Star layers */}
+        <div className={styles.stars}></div>
+        <div className={styles.stars2}></div>
+        <div className={styles.stars3}></div>
+
+        {/* Content */}
+        <div className={styles.imageBlock}>
+          <Image
+            src="/starclock.png"
+            alt="Астрологічний годинник"
+            width={600}
+            height={600}
+            className={styles.image}
+          />
+        </div>
+
+        <div className={styles.textBlock}>
+          <h1 className={styles.title}>
+            Відкрийте свою натальну карту, знайдіть себе справжнього
+          </h1>
+          <p className={styles.text}>
+            Я допомагаю побачити ваші природні таланти, ресурси та потенціал
+            розвитку через глибокий астрологічний аналіз. Без містики — лише
+            знання, які змінюють життя.
           </p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
       </main>
-    </div>
+      <div className="fade-in">
+        <AboutBlock />
+      </div>
+
+      <div className="fade-in">
+        <ServicesBlock />
+      </div>
+
+      <div className="fade-in">
+        <CTA />
+      </div>
+
+      <Footer />
+    </>
   );
 }

@@ -1,141 +1,456 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
+/* ============================================================
+   ТУМАННОСТІ — об'ємний glow фон
+   ============================================================ */
 
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+.nebula,
+.nebula2,
+.nebulaDust {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; /* над фоном, під зірками */
+  filter: blur(140px);
+  opacity: 0.75;
 }
 
-.main {
+/* Тепла фіолетова */
+.nebula2 {
+  background:
+    radial-gradient(
+      circle at 25% 40%,
+      rgba(200, 120, 255, 0.45),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 45% 70%,
+      rgba(255, 80, 200, 0.32),
+      transparent 50%
+    );
+  animation:
+    nebulaMove 140s infinite alternate ease-in-out,
+    nebulaPulse 18s infinite ease-in-out,
+    nebulaColorShift 50s infinite alternate ease-in-out;
+}
+
+/* Холодна синьо-фіолетова */
+.nebula {
+  background:
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(120, 160, 255, 0.38),
+      transparent 75%
+    ),
+    radial-gradient(
+      circle at 60% 80%,
+      rgba(150, 130, 255, 0.28),
+      transparent 75%
+    );
+  animation:
+    nebulaMove2 160s infinite alternate ease-in-out,
+    nebulaPulse 22s infinite ease-in-out,
+    nebulaColorShift2 60s infinite alternate ease-in-out;
+}
+
+/* Космічний пил */
+.nebulaDust {
+  opacity: 0.35;
+  filter: blur(110px);
+  background:
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(255, 180, 255, 0.28),
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 70% 20%,
+      rgba(160, 200, 255, 0.24),
+      transparent 75%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.1),
+      transparent 80%
+    );
+  animation:
+    dustMove 240s infinite linear,
+    dustShift 70s infinite alternate ease-in-out;
+}
+
+/* Анімації туманностей */
+@keyframes nebulaMove {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-80px, -50px) scale(1.12);
+  }
+}
+@keyframes nebulaMove2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(70px, 60px) scale(1.1);
+  }
+}
+@keyframes nebulaPulse {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+@keyframes nebulaColorShift {
+  0% {
+    filter: hue-rotate(0deg) blur(140px);
+  }
+  100% {
+    filter: hue-rotate(40deg) blur(170px);
+  }
+}
+@keyframes nebulaColorShift2 {
+  0% {
+    filter: hue-rotate(0deg) blur(140px);
+  }
+  100% {
+    filter: hue-rotate(-35deg) blur(165px);
+  }
+}
+@keyframes dustMove {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-160px, 80px) scale(1.07);
+  }
+}
+@keyframes dustShift {
+  0% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.45;
+  }
+}
+
+/* ============================================================
+   ЗІРКИ — багато + паралакс рух
+   ============================================================ */
+
+.stars,
+.stars2,
+.stars3 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* над туманностями */
+  overflow: hidden;
+}
+
+/* дрібні зірки (70+) */
+.stars::before {
+  content: "";
+  font-size: 4px;
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation:
+    twinkleSmall 6s infinite ease-in-out,
+    moveSmall 70s linear infinite;
+  box-shadow:
+    20px 40px #fff,
+    120px 90px #d8c7ff,
+    220px 180px #fff,
+    80px 260px #e8ddff,
+    260px 30px #fff,
+    300px 220px #fff,
+    500px 120px #d7c4ff,
+    780px 60px #fff,
+    900px 300px #e8ddff,
+    1100px 100px #fff,
+    1300px 200px #d9caff,
+    1500px 150px #fff,
+    1800px 260px #fff,
+    2000px 120px #fff,
+    2300px 300px #cfc4ff,
+    250px 500px #fff,
+    400px 650px #c8baff,
+    900px 700px #fff,
+    1200px 800px #e8ddff,
+    1600px 900px #fff;
+}
+
+/* середні зірки */
+.stars2::before {
+  content: "✦";
+  font-size: 8px;
+  position: absolute;
+  opacity: 0.85;
+  animation:
+    twinkleMedium 8s infinite ease-in-out,
+    moveMedium 50s linear infinite;
+  text-shadow:
+    60px 200px #fff,
+    240px 400px #c9b6ff,
+    500px 120px #fff,
+    720px 340px #ddd3ff,
+    900px 500px #fff,
+    1100px 300px #c9b6ff,
+    1300px 450px #fff,
+    1500px 250px #ddd3ff,
+    1700px 420px #fff,
+    1900px 500px #cbbaff,
+    2100px 300px #fff,
+    300px 700px #d8caff,
+    600px 900px #fff,
+    1000px 650px #ddd3ff,
+    1400px 900px #fff;
+}
+
+/* великі зірки */
+.stars3::before {
+  content: "✦";
+  font-size: 16px;
+  position: absolute;
+  opacity: 0.6;
+  animation:
+    twinkleLarge 10s infinite ease-in-out,
+    moveLarge 35s linear infinite;
+  text-shadow:
+    150px 300px #fff,
+    450px 500px #ceb8ff,
+    750px 200px #fff,
+    1000px 350px #d5c5ff,
+    1250px 460px #fff,
+    1500px 300px #cebaff,
+    1750px 180px #fff,
+    2000px 350px #d6caff,
+    350px 900px #fff,
+    900px 850px #d6caff,
+    1400px 1050px #fff;
+}
+
+/* Анімації зірок */
+@keyframes twinkleSmall {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+@keyframes twinkleMedium {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  40% {
+    opacity: 0.9;
+    transform: scale(1.25);
+  }
+}
+@keyframes twinkleLarge {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+@keyframes moveSmall {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-90px, -50px);
+  }
+}
+@keyframes moveMedium {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-160px, -80px);
+  }
+}
+@keyframes moveLarge {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-240px, -120px);
+  }
+}
+
+/* ============================================================
+   КОНТЕЙНЕР
+   ============================================================ */
+
+.container {
+  position: relative;
+  overflow: hidden;
   display: flex;
-  min-height: 100vh;
-  width: 100%;
-  max-width: 800px;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  padding: 20px;
+  gap: 32px;
+  background: radial-gradient(circle at 50% 20%, #1d1b33, #0d0c1c);
+  min-height: 100vh;
+  color: #fff;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+/* Контент над усім */
+.imageBlock,
+.textBlock {
+  position: relative;
+  z-index: 3;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
+/* ============================================================
+   ЗОБРАЖЕННЯ
+   ============================================================ */
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
+.imageBlock {
   width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.image {
+  width: 100%;
+  min-width: 300px;
+  max-width: 420px;
+  border-radius: 16px;
+  transition:
+    transform 0.7s ease,
+    filter 0.7s ease;
+  filter: drop-shadow(0 0 12px rgba(140, 95, 255, 0.4));
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.image:hover {
+  transform: scale(1.15) rotate(8deg);
+  filter: drop-shadow(0 0 22px rgba(165, 120, 255, 0.8));
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
+.imageBlock::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(150, 130, 255, 0.25), transparent);
+  filter: blur(40px);
+  bottom: -20px;
+  right: 20px;
+  pointer-events: none;
+}
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+/* ============================================================
+   ТЕКСТ
+   ============================================================ */
+
+.textBlock {
+  text-align: center;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 480px;
+  margin: 0 auto;
+  color: #e3e0ff;
+}
+
+/* ============================================================
+   BREAKPOINTS
+   ============================================================ */
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    padding: 60px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .imageBlock {
+    width: 50%;
+  }
+  .textBlock {
+    width: 50%;
+    text-align: left;
+  }
+  .title {
+    font-size: 36px;
+  }
+  .text {
+    font-size: 18px;
   }
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+@media (min-width: 1440px) {
+  .container {
+    padding: 100px 150px;
   }
-
-  .intro {
-    gap: 16px;
+  .image {
+    max-width: 500px;
   }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+  .title {
+    font-size: 44px;
+  }
+  .text {
+    font-size: 20px;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+/* ПЛАВНИЙ ПЕРЕХІД ВІД HERO ДО НАСТУПНИХ СЕКЦІЙ */
+.fadeAfterHero {
+  position: relative;
+}
 
-  .page {
-    --background: #000;
-    --foreground: #000;
+.fadeAfterHero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -120px;
+  height: 240px;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 12, 28, 1),
+    rgba(13, 12, 28, 0)
+  );
+  z-index: 2;
+  pointer-events: none;
+}
 
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+.about::after,
+.services::after,
+.cta::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 240px;
+  background-image: url("/constellation.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.28;
+  right: -40px;
+  top: 40px;
+  z-index: 1;
 }

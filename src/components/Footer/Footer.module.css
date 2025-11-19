@@ -1,0 +1,53 @@
+.footer {
+  position: relative;
+  padding: 100px 20px 60px;
+  background: #0d0c1c;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.stars::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/small-stars.png");
+  background-size: cover;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.inner {
+  position: relative;
+  z-index: 3;
+}
+
+.title {
+  font-family: var(--font-title);
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.text {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  color: #dcd7ff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.mail {
+  color: #b599ff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.mail:hover {
+  color: #dcb3ff;
+}
+
+.copy {
+  margin-top: 28px;
+  opacity: 0.6;
+  font-size: 14px;
+}
