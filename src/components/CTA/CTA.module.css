@@ -21,17 +21,18 @@
 }
 
 .title {
-  font-size: 36px;
+  font-size: 32px;
   font-family: var(--font-title);
   margin-bottom: 12px;
   position: relative;
   z-index: 2;
+  color: #9589cf;
 }
 
 .sub {
   max-width: 640px;
   margin: 0 auto 32px;
-  color: #e5e0ff;
+  color: #9895a5;
   line-height: 1.6;
   position: relative;
   z-index: 2;
@@ -56,4 +57,13 @@
 .button:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 32px rgba(180, 100, 255, 0.9);
+}
+
+@media (min-width: 1440px) {
+  .sub {
+    font-size: 24px;
+  }
+  .title {
+    font-size: 40px;
+  }
 }

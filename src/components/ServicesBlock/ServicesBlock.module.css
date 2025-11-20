@@ -1,10 +1,9 @@
 .services {
   position: relative;
-  padding: 120px 20px;
+  padding: 100px 20px;
   color: #fff;
   overflow: hidden;
   background: radial-gradient(circle at 30% 20%, #1d1a32, #0d0c1c);
-  /*min-height: 100vh;*/
 }
 
 .inner {
@@ -14,52 +13,109 @@
 }
 
 .title {
-  font-size: 38px;
+  font-size: 32px;
+  margin-bottom: 50px;
   font-family: var(--font-title);
-  margin-bottom: 60px;
-  background: radial-gradient(circle, rgba(150, 130, 255, 0.75), transparent);
+  color: #ece7ff;
 }
 
+/* ---------------------------
+   MOBILE FIRST
+---------------------------- */
 .grid {
   display: grid;
-  gap: 36px;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 28px;
+  grid-template-columns: 1fr;
 }
 
+/* Вирівнюємо висоту карток */
 .card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
   padding: 28px;
+  border-radius: 16px;
+
   background: radial-gradient(circle, rgba(150, 130, 255, 0.75), transparent);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(180, 150, 255, 0.25);
-  box-shadow: 0 0 24px rgba(140, 95, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(180, 150, 255, 0.22);
+  box-shadow: 0 0 20px rgba(140, 95, 255, 0.2);
+
   transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 32px rgba(160, 120, 255, 0.55);
-}
-
-.card h3 {
-  font-size: 22px;
-  margin-bottom: 8px;
-  font-family: var(--font-title);
-}
-
-.card p {
-  font-size: 16px;
-  line-height: 1.55;
-  color: #e6e1ff;
+  transform: translateY(-6px);
+  box-shadow: 0 0 30px rgba(160, 120, 255, 0.5);
 }
 
 .icon {
   width: 48px;
   height: 48px;
-  display: block;
-  margin: 0 auto 12px;
+  margin-bottom: 14px;
   opacity: 0.9;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #e6e1ff;
+  margin-top: auto; /* гарне вирівнювання */
+}
+
+/* ---------------------------
+   TABLET ≥ 768px
+---------------------------- */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .card {
+    min-height: 260px;
+    padding: 32px;
+  }
+}
+
+/* ---------------------------
+   DESKTOP ≥ 1440px
+---------------------------- */
+@media (min-width: 1440px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 🔥 вирішує проблему 4-4-1 */
+    gap: 36px;
+  }
+
+  .title {
+    font-size: 42px;
+    margin-bottom: 60px;
+  }
+
+  .card {
+    min-height: 280px; /* тепер всі однакові */
+    padding: 36px;
+  }
+
+  .card h3 {
+    font-size: 22px;
+  }
+
+  .card p {
+    font-size: 17px;
+  }
 }

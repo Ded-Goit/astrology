@@ -9,10 +9,10 @@ export default function Footer() {
       <div className={styles.stars}></div>
 
       <div className={styles.inner}>
-        <h3 className={styles.title}>Астролог Ольга</h3>
+        <h3 className={styles.title}>Астролог Ольга Романова</h3>
 
         <p className={styles.text}>
-          Консультації, що допомагають зрозуміти свій шлях і знайти внутрішній
+          Консультації, що допомагають зрозуміти свій шлях, і знайти внутрішній
           баланс.
         </p>
 

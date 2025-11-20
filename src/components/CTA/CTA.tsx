@@ -5,7 +5,7 @@ export default function CTA() {
     <section className={styles.cta}>
       <div className={styles.glow}></div>
 
-      <h2 className={styles.title}>Готові відкрити свою астрологічну карту?</h2>
+      <h2 className={styles.title}>Готові змінити своє життя на кращє?</h2>
 
       <p className={styles.sub}>
         Запишіться на персональну консультацію з Ольгою. Це може змінити ваше
