@@ -1,15 +1,14 @@
 "use client";
 
+import { motion } from "framer-motion";
 import AboutBlock from "@/components/AboutBlock/AboutBlock";
-import styles from "./page.module.css";
-import Image from "next/image";
 import ServicesBlock from "@/components/ServicesBlock/ServicesBlock";
 import CTA from "@/components/CTA/CTA";
 import Footer from "@/components/Footer/Footer";
-import { useFadeIn } from "@/hooks/useFadeIn";
+import styles from "./page.module.css";
+import Image from "next/image";
 
 export default function HomePage() {
-  useFadeIn();
   return (
     <>
       <main className={`${styles.container} ${styles.fadeAfterHero}`}>
@@ -23,8 +22,13 @@ export default function HomePage() {
         <div className={styles.stars2}></div>
         <div className={styles.stars3}></div>
 
-        {/* Content */}
-        <div className={styles.imageBlock}>
+        {/* Image block */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className={styles.imageBlock}
+        >
           <Image
             src="/starclock.png"
             alt="Астрологічний годинник"
@@ -32,9 +36,15 @@ export default function HomePage() {
             height={600}
             className={styles.image}
           />
-        </div>
+        </motion.div>
 
-        <div className={styles.textBlock}>
+        {/* Title and text */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className={styles.textBlock}
+        >
           <h1 className={styles.title}>
             Відкрийте свою натальну карту, знайдіть себе справжнього
           </h1>
@@ -43,19 +53,36 @@ export default function HomePage() {
             розвитку через глибокий астрологічний аналіз. Без містики — лише
             знання, які змінюють життя.
           </p>
-        </div>
+        </motion.div>
       </main>
-      <div className="fade-in">
+
+      {/* Scroll fade-in sections */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
+      >
         <AboutBlock />
-      </div>
+      </motion.div>
 
-      <div className="fade-in">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
+      >
         <ServicesBlock />
-      </div>
+      </motion.div>
 
-      <div className="fade-in">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
+      >
         <CTA />
-      </div>
+      </motion.div>
 
       <Footer />
     </>

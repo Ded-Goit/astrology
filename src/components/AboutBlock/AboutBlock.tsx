@@ -21,7 +21,7 @@ export default function AboutBlock() {
         </div>
 
         <div className={styles.text}>
-          <h2 className={styles.title}>Ольга — астролог</h2>
+          <h2 className={styles.title}>Ольга - астролог</h2>
           <p className={styles.desc}>
             Я допомагаю побачити ваші внутрішні ресурси, таланти і глибинну
             природу. Для цього використовую сучасну астрологію, інтуїцію та

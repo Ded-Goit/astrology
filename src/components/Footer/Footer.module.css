@@ -1,7 +1,8 @@
 .footer {
   position: relative;
   padding: 100px 20px 60px;
-  background: #0d0c1c;
+  /*background: #0d0c1c;*/
+  background: radial-gradient(circle, rgba(150, 130, 255, 0.95), transparent);
   text-align: center;
   color: #fff;
   overflow: hidden;
@@ -20,12 +21,14 @@
 .inner {
   position: relative;
   z-index: 3;
+  /*background: radial-gradient(circle, rgba(150, 130, 255, 0.35), transparent);*/
 }
 
 .title {
   font-family: var(--font-title);
   font-size: 28px;
   margin-bottom: 12px;
+  /*background: radial-gradient(circle, rgba(150, 130, 255, 0.75), transparent);*/
 }
 
 .text {

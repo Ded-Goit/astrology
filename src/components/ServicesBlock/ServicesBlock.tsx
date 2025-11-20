@@ -1,4 +1,6 @@
+import Image from "next/image";
 import styles from "./ServicesBlock.module.css";
+import { servicesData } from "@/constant/servicesData";
 
 export default function ServicesBlock() {
   return (
@@ -7,34 +9,20 @@ export default function ServicesBlock() {
         <h2 className={styles.title}>Послуги</h2>
 
         <div className={styles.grid}>
-          <div className={styles.card}>
-            <span className={styles.icon}>☽</span>
-            <h3>Натальна карта</h3>
-            <p>
-              Глибоке розшифрування вашої природи, ресурсів та життєвого
-              потенціалу.
-            </p>
-          </div>
+          {servicesData.map(({ id, title, description, icon }) => (
+            <div key={id} className={styles.card}>
+              <Image
+                src={icon}
+                alt={title}
+                width={48}
+                height={48}
+                className={styles.icon}
+              />
 
-          <div className={styles.card}>
-            <span className={styles.icon}>✦</span>
-            <h3>Сумісність</h3>
-            <p>
-              Аналіз партнерства: любов, сім`я, бізнес, енергетична взаємодія.
-            </p>
-          </div>
-
-          <div className={styles.card}>
-            <span className={styles.icon}>☉</span>
-            <h3>Прогноз</h3>
-            <p>Ваші найближчі тенденції, цикли та можливості розвитку.</p>
-          </div>
-
-          <div className={styles.card}>
-            <span className={styles.icon}>✹</span>
-            <h3>Астропсихологія</h3>
-            <p>Розуміння внутрішніх блоків, страхів і природних дарів.</p>
-          </div>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
