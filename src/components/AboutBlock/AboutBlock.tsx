@@ -23,7 +23,7 @@ export default function AboutBlock() {
         </div>
 
         <div className={styles.text}>
-          <h2 className={styles.title}>Ольга - астролог</h2>
+          <h2 className={styles.title}>Про мене</h2>
           <p className={styles.desc}>
             Я практикуючий астролог, який спеціалізується на глибинному аналізі
             натальних карт та індивідуальних прогнозах. У своїй роботі опираюся
