@@ -13,7 +13,7 @@ export default function CTA() {
       </p>
 
       <a
-        href="https://www.instagram.com/direct/t/104206877645216/"
+        href="https://www.instagram.com/olharomanova/"
         className={styles.button}
         target="_blank"
         rel="noopener noreferrer"

@@ -17,9 +17,9 @@ export default function Footer() {
         </p>
 
         <div className={styles.contacts}>
-          <a href="mailto:yourmail@gmail.com" className={styles.contactItem}>
+          <a href="mailto:astroua74@gmail.com" className={styles.contactItem}>
             <MdEmail className={styles.icon} />
-            yourmail@gmail.com
+            astroua74@gmail.com
           </a>
 
           <a href="tel:+380968934202" className={styles.contactItem}>

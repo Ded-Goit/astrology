@@ -5,6 +5,7 @@
   text-align: center;
   color: #fff;
   overflow: hidden;
+  /* min-height: 50vh;*/
 }
 
 .stars::before {

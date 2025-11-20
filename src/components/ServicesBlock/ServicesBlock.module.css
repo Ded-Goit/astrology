@@ -4,6 +4,7 @@
   color: #fff;
   overflow: hidden;
   background: radial-gradient(circle at 30% 20%, #1d1a32, #0d0c1c);
+  /*min-height: 100vh;*/
 }
 
 .inner {

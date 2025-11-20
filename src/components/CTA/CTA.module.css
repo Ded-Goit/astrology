@@ -5,6 +5,7 @@
   color: #fff;
   overflow: hidden;
   background: radial-gradient(circle at 50% 20%, #1d1b33, #0d0c1c);
+  /*min-height: 50vh;*/
 }
 
 .glow {
