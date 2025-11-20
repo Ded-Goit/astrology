@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "./ServicesBlock.module.css";
 import { servicesData } from "@/constant/servicesData";
 
@@ -9,15 +8,9 @@ export default function ServicesBlock() {
         <h2 className={styles.title}>Послуги</h2>
 
         <div className={styles.grid}>
-          {servicesData.map(({ id, title, description, icon }) => (
+          {servicesData.map(({ id, title, description, icon: Icon }) => (
             <div key={id} className={styles.card}>
-              <Image
-                src={icon}
-                alt={title}
-                width={48}
-                height={48}
-                className={styles.icon}
-              />
+              <Icon className={styles.icon} />
 
               <h3>{title}</h3>
               <p>{description}</p>

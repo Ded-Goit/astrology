@@ -1,8 +1,7 @@
 .footer {
   position: relative;
   padding: 100px 20px 60px;
-  /*background: #0d0c1c;*/
-  background: radial-gradient(circle, rgba(150, 130, 255, 0.95), transparent);
+  background: radial-gradient(circle at center, #181628, #0d0c1c 80%);
   text-align: center;
   color: #fff;
   overflow: hidden;
@@ -14,43 +13,91 @@
   inset: 0;
   background-image: url("/small-stars.png");
   background-size: cover;
-  opacity: 0.3;
+  opacity: 0.15; /* ↓ зменшив, щоб не заважало читанню */
   z-index: 1;
 }
 
 .inner {
   position: relative;
   z-index: 3;
-  /*background: radial-gradient(circle, rgba(150, 130, 255, 0.35), transparent);*/
+  padding: 20px;
 }
 
 .title {
   font-family: var(--font-title);
-  font-size: 28px;
-  margin-bottom: 12px;
-  /*background: radial-gradient(circle, rgba(150, 130, 255, 0.75), transparent);*/
+  font-size: 32px;
+  margin-bottom: 14px;
+  color: #eae5ff;
 }
 
 .text {
-  max-width: 600px;
-  margin: 0 auto 20px;
-  color: #dcd7ff;
-  font-size: 16px;
-  line-height: 1.6;
+  max-width: 650px;
+  margin: 0 auto 28px;
+  color: #d6d1f5; /* читабельний світлий відтінок */
+  font-size: 17px;
+  line-height: 1.65;
 }
 
-.mail {
-  color: #b599ff;
-  text-decoration: none;
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 auto 28px;
+}
+
+.mail,
+.phone {
+  color: #c2b5ff;
   font-size: 18px;
+  text-decoration: none;
+  transition: 0.25s ease;
 }
 
-.mail:hover {
-  color: #dcb3ff;
+.mail:hover,
+.phone:hover {
+  color: #e0c6ff;
 }
 
 .copy {
   margin-top: 28px;
-  opacity: 0.6;
+  opacity: 0.75;
   font-size: 14px;
+  color: #bdb6df;
+  line-height: 1.5;
+}
+
+.dev {
+  color: #cab9ff;
+  text-decoration: none;
+}
+
+.dev:hover {
+  color: #e5d2ff;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ← центрує всі елементи */
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #c2b5ff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.contactItem:hover {
+  color: #e0c6ff;
+}
+
+.icon {
+  font-size: 22px;
+  opacity: 0.85;
 }

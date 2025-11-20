@@ -1,50 +1,39 @@
+import { TbMoonStars, TbHeartStar, TbPlanet, TbTimeline } from "react-icons/tb";
+//import { GiStarsStack } from "react-icons/gi";
+//import { FaSun } from "react-icons/fa6";
+//import { LuClock } from "react-icons/lu";
+import { PiFlowerLotus } from "react-icons/pi";
+//import { RiYinYangLine } from "react-icons/ri";
+
 export const servicesData = [
   {
     id: "natal",
     title: "Натальна астрологія",
     description: "Пізнай себе глибше",
-    icon: "/icons/space1.svg",
+    icon: TbMoonStars,
   },
   {
     id: "compatibility",
     title: "Сумісність",
     description: "Розуміння стосунків",
-    icon: "/icons/space2.svg",
+    icon: TbHeartStar, // або GiStarsStack
   },
   {
     id: "career",
-    title: "Кар’єрна астрологія",
+    title: "Кар’єра та фінанси",
     description: "Ваш фінансовий потенціал",
-    icon: "/icons/space3.svg",
+    icon: TbPlanet, // або FaSun
   },
   {
     id: "forecast",
-    title: "Прогноз",
+    title: "Прогностика",
     description: "Майбутнє під контролем",
-    icon: "/icons/space4.svg",
+    icon: TbTimeline, // або LuClock
   },
   {
-    id: "nat",
-    title: "Натальна астрологія",
-    description: "Пізнай себе глибше",
-    icon: "/icons/space1.svg",
-  },
-  {
-    id: "comp",
-    title: "Сумісність",
-    description: "Розуміння стосунків",
-    icon: "/icons/space2.svg",
-  },
-  {
-    id: "ca",
-    title: "Кар’єрна астрологія",
-    description: "Ваш фінансовий потенціал",
-    icon: "/icons/space3.svg",
-  },
-  {
-    id: "fo",
-    title: "Прогноз",
-    description: "Майбутнє під контролем",
-    icon: "/icons/space4.svg",
+    id: "spiritual",
+    title: "Кармічна та духовна астрологія",
+    description: "Глибинні сенси і минулі досвіди",
+    icon: PiFlowerLotus, // або RiYinYangLine
   },
 ];

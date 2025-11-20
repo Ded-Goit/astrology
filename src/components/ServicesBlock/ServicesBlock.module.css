@@ -16,6 +16,7 @@
   font-size: 38px;
   font-family: var(--font-title);
   margin-bottom: 60px;
+  background: radial-gradient(circle, rgba(150, 130, 255, 0.75), transparent);
 }
 
 .grid {
@@ -55,8 +56,9 @@
 }
 
 .icon {
-  font-size: 32px;
+  width: 48px;
+  height: 48px;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 12px;
   opacity: 0.9;
 }
