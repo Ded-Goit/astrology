@@ -12,7 +12,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/small-stars.png");
+  background-image: url("/planets.webp");
   background-size: cover;
   opacity: 0.15; /* ↓ зменшив, щоб не заважало читанню */
   z-index: 1;

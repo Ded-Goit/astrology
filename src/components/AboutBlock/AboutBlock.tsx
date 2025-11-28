@@ -12,7 +12,7 @@ export default function AboutBlock() {
           <div className={styles.photoGlow}></div>
 
           <Image
-            src="/olga.png"
+            src="/olga.webp"
             alt="Астролог Ольга"
             width={420}
             height={420}

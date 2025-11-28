@@ -30,7 +30,7 @@ export default function HomePage() {
           className={styles.imageBlock}
         >
           <Image
-            src="/starclock.png"
+            src="/starclock.webp"
             alt="Астрологічний годинник"
             width={600}
             height={600}
