@@ -363,6 +363,7 @@
 }
 
 .title {
+  font-family: var(--font-title);
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 12px;
@@ -370,6 +371,7 @@
 }
 
 .text {
+  font-family: var(--font-main);
   font-size: 16px;
   line-height: 1.55;
   max-width: 480px;

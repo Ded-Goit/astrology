@@ -112,6 +112,7 @@
 
 /* Текст */
 .text {
+  font-family: var(--font-main);
   opacity: 0;
   transform: translateY(40px);
   animation: textFadeIn 1.2s ease-out forwards;
@@ -120,6 +121,7 @@
 }
 
 .title {
+  font-family: var(--font-title);
   font-size: 30px;
   margin-bottom: 14px;
   color: #f1ecff;

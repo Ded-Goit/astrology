@@ -30,6 +30,7 @@
 }
 
 .sub {
+  font-family: var(--font-main);
   max-width: 640px;
   margin: 0 auto 32px;
   color: #9895a5;
@@ -39,6 +40,7 @@
 }
 
 .button {
+  font-family: var(--font-main);
   display: inline-block;
   margin-top: 12px;
   padding: 16px 36px;

@@ -67,6 +67,7 @@
 }
 
 .card p {
+  font-family: var(--font-main);
   font-size: 15px;
   line-height: 1.55;
   color: #e6e1ff;
