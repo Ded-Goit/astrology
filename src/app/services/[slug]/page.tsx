@@ -27,7 +27,6 @@ export default async function ServicePage({ params }: Props) {
           <h3 className={styles.cardTitle}>Що входить у послугу :</h3>
           <ul>
             <li>PDF файл з аналізом</li>
-            <li>Глибинний опис всіх показників</li>
             <li>30 хв онлайн консультації</li>
           </ul>
 
