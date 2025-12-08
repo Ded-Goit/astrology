@@ -1,6 +1,6 @@
 import styles from "./Footer.module.css";
 import { MdEmail } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaTelegramPlane } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
@@ -35,6 +35,15 @@ export default function Footer() {
           >
             <FaInstagram className={styles.icon} />
             @olharomanova
+          </a>
+          <a
+            href="https://t.me/Olha2874"
+            className={styles.contactItem}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaTelegramPlane className={styles.icon} />
+            @Olha2874
           </a>
         </div>
 
