@@ -1,59 +1,207 @@
+/* === Мобайл-ферст неонова стильова магія === */
+
 .page {
-  padding: 120px 20px;
-  color: #fff;
-  background: radial-gradient(circle at 30% 20%, #1b1830, #0c0b17);
+  padding: 100px 18px 60px;
+  background: radial-gradient(circle at 40% 10%, #1a1537, #090812 60%);
+  min-height: 100vh;
+  color: #eae4ff;
+
+  /* Легка анімація фону */
+  background-size: 140%;
+  animation: bgMove 12s infinite alternate ease-in-out;
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 60% 80%;
+  }
 }
 
 .inner {
-  max-width: 900px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
+/* ===== Заголовок з WOW ефектом ===== */
+
 .title {
-  font-size: 40px;
-  margin-bottom: 30px;
-  color: #e8e3ff;
-  font-family: var(--font-title);
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 28px;
+  font-weight: 700;
+  color: #cfc3ff;
+  letter-spacing: 0.5px;
+
+  /* Легкий 3D-glow */
+  text-shadow:
+    0 0 8px #7f5bff,
+    0 0 16px rgba(150, 110, 255, 0.4);
+  animation: fadeSlide 1.2s ease both;
 }
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 48px;
+  }
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Опис ===== */
 
 .description {
   white-space: pre-line;
-  font-size: 18px;
-  opacity: 0.9;
-  margin-bottom: 40px;
+  opacity: 0.85;
+  line-height: 1.7;
+  font-size: 17px;
+  margin-bottom: 36px;
+  animation: fadeIn 1.6s ease both;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== Основна картка послуги ===== */
+
 .card {
-  padding: 32px;
-  border-radius: 16px;
-  background: rgba(100, 80, 170, 0.25);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(160, 130, 255, 0.25);
-  box-shadow: 0 0 20px rgba(140, 95, 255, 0.25);
+  margin-top: 10px;
+  padding: 26px;
   margin-bottom: 60px;
+  text-align: center;
+
+  background: rgba(125, 90, 210, 0.18);
+  border: 1px solid rgba(185, 160, 255, 0.25);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+
+  /* Об’єм і глибина */
+  box-shadow:
+    0 0 25px rgba(130, 95, 245, 0.35),
+    inset 0 0 20px rgba(170, 150, 255, 0.15);
+
+  animation: popCard 0.9s ease both;
+}
+
+@keyframes popCard {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cardTitle {
+  font-size: 20px;
+  margin-bottom: 14px;
+  color: #dbcfff;
+  text-shadow: 0 0 6px rgba(160, 130, 255, 0.4);
 }
 
 .card ul {
-  margin: 16px 0 24px;
-  padding-left: 20px;
+  padding: 0;
+  margin: 20px 0 32px;
+  list-style: none;
 }
+
+.card li {
+  margin-bottom: 14px;
+  font-size: 17px;
+  color: #f3edff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  /* Анімований маркер */
+  position: relative;
+}
+
+card li::before {
+  content: "✦";
+  font-size: 14px;
+  color: #d8c8ff;
+  text-shadow: 0 0 6px rgba(200, 165, 255, 0.6);
+  opacity: 0.9;
+
+  transform: scale(0.9);
+  transition: 0.3s ease;
+}
+
+.card li:hover::before {
+  transform: scale(1.2);
+  color: #f0e6ff;
+}
+
+/* ===== Кнопка ===== */
 
 .button {
   display: inline-block;
-  background: #a78bfa;
-  padding: 14px 26px;
-  border-radius: 12px;
-  color: #0d0b18;
+  margin: 0 auto;
+  padding: 15px 28px;
+  border-radius: 14px;
   font-weight: 600;
+  color: #120e21;
+
+  background: linear-gradient(135deg, #b299ff, #d1b8ff);
+  box-shadow:
+    0 8px 18px rgba(160, 130, 255, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+
   transition: 0.3s ease;
 }
 
 .button:hover {
-  background: #c4b5fd;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    0 12px 22px rgba(180, 150, 255, 0.55),
+    inset 0 0 14px rgba(255, 255, 255, 0.45);
 }
 
+/* ===== Посилання "назад" ===== */
+
 .back {
-  color: #bda9ff;
-  text-decoration: underline;
+  display: inline-block;
+  margin-top: 10px;
   font-size: 16px;
+  color: #cbbaff;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.back::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: #d5caff;
+  transition: 0.3s ease;
+}
+
+.back:hover::after {
+  width: 100%;
 }
